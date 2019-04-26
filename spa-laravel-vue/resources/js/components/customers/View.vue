@@ -1,7 +1,8 @@
+    
 <template>
     <div class="customer-view" v-if="customer">
         <div class="user-img">
-            <!-- Imagen -->
+            <img src="https://www.scottsdaleazestateplanning.com/wp-content/uploads/2018/01/user.png" alt="">
         </div>
         <div class="user-info">
             <table class="table">
@@ -22,32 +23,32 @@
                     <td>{{ customer.phone }}</td>
                 </tr>
                 <tr>
-                    <th>website</th>
+                    <th>Website</th>
                     <td>{{ customer.website }}</td>
                 </tr>
             </table>
-            <router-lin to="/customers">Back to the all customers</router-lin>
+            <router-link to="/customers">Back to all customers</router-link>
         </div>
     </div>
 </template>
+
 <script>
     export default {
         name: 'view',
         created() {
-            if(this.customers.length) {
+            if (this.customers.length) {
                 this.customer = this.customers.find((customer) => customer.id == this.$route.params.id);
             } else {
                 axios.get(`http://127.0.0.1:8000/api/customers/${this.$route.params.id}`)
                     .then((response) => {
                         this.customer = response.data.customer
-                    })
+                    });
             }
-            
         },
         data() {
             return {
                 customer: null
-            }
+            };
         },
         computed: {
             currentUser() {
@@ -61,23 +62,20 @@
 </script>
 
 <style scoped>
-    .customer-view {
-        display: flex;
-        align-items: center;
-    }
-
-    .user-img {
-        flex: 1;
-    }
-
-    .user-img img {
-        max-width: 160px;
-    }
-
-    .user-info {
-        flex: 3;
-        overflow-x: scroll;
-    }
+.customer-view {
+    display: flex;
+    align-items: center;
+}
+.user-img {
+    flex: 1;
+}
+.user-img img {
+    max-width: 160px;
+}
+.user-info {
+    flex: 3;
+    overflow-x: scroll;
+}
 </style>
 
 

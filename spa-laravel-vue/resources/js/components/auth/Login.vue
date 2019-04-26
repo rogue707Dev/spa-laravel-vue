@@ -4,35 +4,37 @@
             <div class="col-md-4">
                 <div class="card">
                     <div class="card-header">
-                        Login
+                        <strong>LOGIN</strong>
                     </div>
                     <div class="card-body">
-                        <form @submit.prevent="authenticate">
-                            <div class="form-group row">
-                                <label for="">Email</label>
-                                <input type="email" 
-                                v-model="form.email"
-                                class="form-control"
-                                placeholder="Email address"
-                                >
-                            </div>
-                            <div class="form-group row">
-                                <label for="">Password</label>
-                                <input type="password" 
-                                v-model="form.password"
-                                class="form-control"
-                                placeholder="Password"
-                                >
-                            </div>
-                            <div class="form-group row" >
-                                <input type="submit" value="login">
-                            </div>
-                            <div class="form-group row" v-if="authError">
-                                <p class="error">
-                                    {{ authError }}
-                                </p>
-                            </div>
-                        </form>
+                        <div class="container">
+                            <form @submit.prevent="authenticate">
+                                <div class="form-group row">
+                                    <label for=""><strong>Email</strong></label>
+                                    <input type="email" 
+                                    v-model="form.email"
+                                    class="form-control"
+                                    placeholder="Email address"
+                                    >
+                                </div>
+                                <div class="form-group row">
+                                    <label for=""><strong>Password</strong></label>
+                                    <input type="password" 
+                                    v-model="form.password"
+                                    class="form-control"
+                                    placeholder="Password"
+                                    >
+                                </div>
+                                <div class="form-group row" >
+                                    <input type="submit" class="btn btn-primary" value="login">
+                                </div>
+                                <div class="form-group row" v-if="authError">
+                                    <p class="error">
+                                        {{ authError }}
+                                    </p>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>

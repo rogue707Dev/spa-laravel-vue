@@ -30,13 +30,15 @@
         </table>
     </div>
 </template>
+
 <script>
     export default {
         name: 'list',
         mounted() {
-            if(this.customers.length) {
-                return;
-            }
+            // if (this.customers.length) {
+            //     return;
+            // }
+            
             this.$store.dispatch('getCustomers');
         },
         computed: {
@@ -48,9 +50,8 @@
 </script>
 
 <style scoped>
-    .btn-wrapper {
-        text-align: right;
-        margin-bottom: 20px;
-    }
+.btn-wrapper {
+    text-align: right;
+    margin-bottom: 20px;
+}
 </style>
-
