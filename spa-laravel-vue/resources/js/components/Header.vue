@@ -8,12 +8,12 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
                     <template v-if="!currentUser">
-                        <li>
+                        <!-- <li>
                             <router-link to="/login" class="nav-link">Login</router-link>
-                        </li>
-                        <li>
+                        </li> -->
+                        <!-- <li>
                             <router-link to="/register" class="nav-link">Register</router-link>
-                        </li>
+                        </li> -->
                     </template>
                     <template v-else>
                         <li>

@@ -1840,6 +1840,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'home',
   computed: {
@@ -39570,37 +39572,7 @@ var render = function() {
                 { staticClass: "navbar-nav ml-auto" },
                 [
                   !_vm.currentUser
-                    ? [
-                        _c(
-                          "li",
-                          [
-                            _c(
-                              "router-link",
-                              {
-                                staticClass: "nav-link",
-                                attrs: { to: "/login" }
-                              },
-                              [_vm._v("Login")]
-                            )
-                          ],
-                          1
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "li",
-                          [
-                            _c(
-                              "router-link",
-                              {
-                                staticClass: "nav-link",
-                                attrs: { to: "/register" }
-                              },
-                              [_vm._v("Register")]
-                            )
-                          ],
-                          1
-                        )
-                      ]
+                    ? void 0
                     : [
                         _c(
                           "li",
@@ -39729,7 +39701,12 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "card-body" }, [
-            _c("h2", [_vm._v(_vm._s(_vm.welcome))])
+            _c("h2", [_vm._v(_vm._s(_vm.welcome))]),
+            _vm._v(" "),
+            _c("img", {
+              staticStyle: { "max-width": "100%" },
+              attrs: { src: "assets/image/image_vue.png", alt: "WeCode" }
+            })
           ])
         ])
       ])

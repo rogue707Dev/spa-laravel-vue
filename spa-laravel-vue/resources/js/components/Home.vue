@@ -7,12 +7,14 @@
 
                     <div class="card-body">
                         <h2>{{ welcome }}</h2>
+                        <img src="assets/image/image_vue.png" alt="WeCode" style="max-width: 100%">
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </template>
+
 <script>
     export default {
         name: 'home',
@@ -21,5 +23,5 @@
                 return this.$store.getters.welcome
             }
         }
-    }   
+    }
 </script>
