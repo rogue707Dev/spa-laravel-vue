@@ -56879,12 +56879,13 @@ function getLocalUser() {
 /*!*****************************************!*\
   !*** ./resources/js/helpers/general.js ***!
   \*****************************************/
-/*! exports provided: initialize */
+/*! exports provided: initialize, setAuthorization */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "initialize", function() { return initialize; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setAuthorization", function() { return setAuthorization; });
 function initialize(store, router) {
   router.beforeEach(function (to, from, next) {
     var requireAuth = to.matched.some(function (record) {
@@ -56908,7 +56909,14 @@ function initialize(store, router) {
 
     return Promise.reject(error);
   });
-  axios.defaults.headers.common["Authorization"] = "Bearer ".concat(store.getters.currentUser.token);
+
+  if (store.getters.currentUser) {
+    setAuthorization(store.getters.currentUser.token);
+  } // axios.defaults.headers.common["Authorization"] = `Bearer ${store.getters.currentUser.token}`
+
+}
+function setAuthorization(token) {
+  axios.defaults.headers.common["Authorization"] = "Bearer ".concat(token);
 }
 
 /***/ }),
@@ -57060,8 +57068,8 @@ var user = Object(_helpers_auth__WEBPACK_IMPORTED_MODULE_0__["getLocalUser"])();
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Samsung\Documents\SPA Laravel-Vue\spa-laravel-vue\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\Samsung\Documents\SPA Laravel-Vue\spa-laravel-vue\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\STI Globals\Documents\SPA Laravel-Vue\spa-laravel-vue\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\STI Globals\Documents\SPA Laravel-Vue\spa-laravel-vue\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
