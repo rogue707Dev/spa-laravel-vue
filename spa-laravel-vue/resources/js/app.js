@@ -5,7 +5,7 @@ import Vuex from 'vuex';
 import { routes } from './routes';
 import StoreData from './store';
 import MainApp from './components/MainComponent.vue';
-
+import { initialize } from './helpers/general';
 
 Vue.use(VueRouter);
 Vue.use(Vuex);
@@ -17,18 +17,8 @@ const router = new VueRouter({
     mode: 'history'
 });
 
-router.beforeEach((to, from, next) => {
-    const requireAuth = to.matched.some(record => record.meta.requireAuth);
-    const currentUser = store.state.currentUser;
+initialize(store, router);
 
-    if (requireAuth && !currentUser) {
-        next('/login');
-    } else if (to.path == '/login' && currentUser) {
-        next('/');
-    } else {
-        next();
-    }
-});
 
 window.Vue = require('vue');
 

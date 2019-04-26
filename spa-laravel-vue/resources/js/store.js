@@ -47,11 +47,21 @@ export default {
             localStorage.removeItem("user");
             state.isLoggedIn = false;
             state.currentUser = null;
+        },
+        updateCustomers(state, payload) {
+            state.customers = payload;
+
         }
     },
     actions: {
         login(context) {
             context.commit('login');
+        },
+        getCustomers(context) {
+            axios.get('http://127.0.0.1:8000/api/customers')
+            .then((response) => {
+                context.commit('updateCustomers', response.data.customers);
+            })
         }
     }
 }
