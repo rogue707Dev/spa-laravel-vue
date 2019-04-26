@@ -40185,7 +40185,10 @@ var render = function() {
               [
                 _c(
                   "router-link",
-                  { staticClass: "btn", attrs: { to: "/customers" } },
+                  {
+                    staticClass: "btn btn-danger",
+                    attrs: { to: "/customers" }
+                  },
                   [_vm._v("Cancel")]
                 )
               ],
